@@ -30,38 +30,47 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
 
     try {
-      const formData = new FormData(e.currentTarget);
+      const form = e.currentTarget;
+      const formData = new FormData(form);
 
       const res = await fetch('./contact.php', {
         method: 'POST',
         body: formData,
       });
 
-      const data = await res.json().catch(() => ({} as any));
-
-      if (!res.ok || data?.ok !== true) {
-        toast({
-          title: 'Erreur',
-          description: data?.error || "Impossible d'envoyer le message. Réessayez dans quelques instants.",
-        });
-        return;
+      // En cas d'erreur HTTP (404/500...), on remonte une erreur claire
+      if (!res.ok) {
+        const txt = await res.text().catch(() => '');
+        throw new Error(`HTTP ${res.status} ${txt}`);
       }
 
+      // contact.php doit renvoyer du JSON { ok: true } en succès
+      const data = await res.json().catch(() => ({} as any));
+      if (data?.ok !== true) {
+        throw new Error(data?.error || "Réponse serveur invalide");
+      }
+
+      // ✅ Succès uniquement ici
       setIsSubmitted(true);
+      form.reset();
+
       toast({
         title: 'Message envoyé !',
-        description: 'Je vous répondrai dès que possible.',
+        description: 'Merci ! Je vous répondrai dès que possible.',
       });
-
-      // Optionnel : vider le formulaire après succès
-      e.currentTarget.reset();
     } catch (err) {
+      console.error(err);
+      setIsSubmitted(false);
+
       toast({
         title: 'Erreur',
         description: "Problème réseau ou serveur. Réessayez dans quelques instants.",
+        variant: 'destructive',
       });
     } finally {
       setIsSubmitting(false);
