@@ -31,17 +31,41 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    toast({
-      title: "Message envoyé !",
-      description: "Je vous répondrai dès que possible.",
-    });
+
+    try {
+      const formData = new FormData(e.currentTarget);
+
+      const res = await fetch('./contact.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json().catch(() => ({} as any));
+
+      if (!res.ok || data?.ok !== true) {
+        toast({
+          title: 'Erreur',
+          description: data?.error || "Impossible d'envoyer le message. Réessayez dans quelques instants.",
+        });
+        return;
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: 'Message envoyé !',
+        description: 'Je vous répondrai dès que possible.',
+      });
+
+      // Optionnel : vider le formulaire après succès
+      e.currentTarget.reset();
+    } catch (err) {
+      toast({
+        title: 'Erreur',
+        description: "Problème réseau ou serveur. Réessayez dans quelques instants.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -88,6 +112,8 @@ const Contact = () => {
                         <input
                           type="text"
                           required
+                          name="nom"
+                          autoComplete="name"
                           className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           placeholder="Votre nom"
                         />
@@ -98,6 +124,8 @@ const Contact = () => {
                         </label>
                         <input
                           type="text"
+                          name="societe"
+                          autoComplete="organization"
                           className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           placeholder="Nom de votre société"
                         />
@@ -112,6 +140,8 @@ const Contact = () => {
                         <input
                           type="email"
                           required
+                          name="email"
+                          autoComplete="email"
                           className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           placeholder="votre@email.com"
                         />
@@ -122,6 +152,8 @@ const Contact = () => {
                         </label>
                         <input
                           type="tel"
+                          name="telephone"
+                          autoComplete="tel"
                           className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           placeholder="+32 xxx xx xx xx"
                         />
@@ -132,7 +164,9 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-muted-foreground mb-1.5">
                         Service
                       </label>
-                      <select className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all">
+                      <select
+                        name="service"
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all">
                         {services.map((service) => (
                           <option key={service.value} value={service.value}>
                             {service.label}
@@ -148,6 +182,7 @@ const Contact = () => {
                       <textarea
                         required
                         rows={5}
+                        name="message"
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
                         placeholder="Décrivez votre projet ou votre besoin..."
                       />
@@ -250,3 +285,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
