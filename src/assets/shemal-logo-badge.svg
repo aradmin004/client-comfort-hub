@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Shemal Petroleum">
+  <title>Shemal Petroleum</title>
+  <defs>
+    <radialGradient id="bgVignette" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#10214f"/>
+      <stop offset="60%" stop-color="#081633"/>
+      <stop offset="100%" stop-color="#040a1c"/>
+    </radialGradient>
+    <linearGradient id="goldStroke" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#fff6da"/>
+      <stop offset="25%" stop-color="#f3ce6b"/>
+      <stop offset="55%" stop-color="#d4af37"/>
+      <stop offset="80%" stop-color="#a9781f"/>
+      <stop offset="100%" stop-color="#f3ce6b"/>
+    </linearGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdf1c7"/>
+      <stop offset="45%" stop-color="#e8c25e"/>
+      <stop offset="100%" stop-color="#b8860b"/>
+    </linearGradient>
+    <radialGradient id="dropGloss" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#fff8e1"/>
+      <stop offset="45%" stop-color="#f6c453"/>
+      <stop offset="100%" stop-color="#b5790e"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="600" height="750" fill="url(#bgVignette)"/>
+
+  <path d="M300 80 C395 215 445 300 445 365 C445 440 380 495 300 495 C220 495 155 440 155 365 C155 300 205 215 300 80 Z"
+        fill="none" stroke="url(#goldStroke)" stroke-width="14" stroke-linejoin="round"/>
+
+  <path d="M165 430 C210 470 300 495 390 480 C450 470 480 480 500 460"
+        fill="none" stroke="url(#goldStroke)" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <path d="M185 455 C240 485 320 500 400 490 C440 485 465 490 480 478"
+        fill="none" stroke="url(#goldStroke)" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+
+  <path d="M300 130 C325 160 338 182 338 200 C338 221 321 238 300 238 C279 238 262 221 262 200 C262 182 275 160 300 130 Z"
+        fill="url(#dropGloss)"/>
+
+  <g stroke="url(#goldStroke)" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M390 255 L405 175 L420 255"/>
+    <line x1="396" y1="225" x2="414" y2="225"/>
+    <line x1="365" y1="190" x2="430" y2="195" stroke-width="8"/>
+    <path d="M430 195 q12 -4 14 8"/>
+  </g>
+  <circle cx="365" cy="190" r="9" fill="url(#goldText)"/>
+  <rect x="380" y="253" width="50" height="8" rx="3" fill="url(#goldText)"/>
+
+  <text x="300" y="415" text-anchor="middle" direction="rtl"
+        style="font-family:'Amiri','Noto Naskh Arabic',serif; font-weight:700; font-size:130px;"
+        fill="url(#goldText)">شمال</text>
+
+  <text x="300" y="592" text-anchor="middle"
+        style="font-family:'Cinzel',serif; font-weight:700; font-size:64px; letter-spacing:10px;"
+        fill="url(#goldText)">SHEMAL</text>
+
+  <line x1="175" y1="635" x2="255" y2="635" stroke="url(#goldStroke)" stroke-width="2"/>
+  <text x="300" y="643" text-anchor="middle"
+        style="font-family:'Cinzel',serif; font-weight:500; font-size:22px; letter-spacing:8px;"
+        fill="url(#goldText)">PETROLEUM</text>
+  <line x1="345" y1="635" x2="425" y2="635" stroke="url(#goldStroke)" stroke-width="2"/>
+</svg>
