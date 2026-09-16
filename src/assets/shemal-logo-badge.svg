@@ -30,22 +30,20 @@
   <path d="M300 80 C395 215 445 300 445 365 C445 440 380 495 300 495 C220 495 155 440 155 365 C155 300 205 215 300 80 Z"
         fill="none" stroke="url(#goldStroke)" stroke-width="14" stroke-linejoin="round"/>
 
-  <path d="M165 430 C210 470 300 495 390 480 C450 470 480 480 500 460"
-        fill="none" stroke="url(#goldStroke)" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
-  <path d="M185 455 C240 485 320 500 400 490 C440 485 465 490 480 478"
-        fill="none" stroke="url(#goldStroke)" stroke-width="6" stroke-linecap="round" opacity="0.55"/>
+  <path d="M300 495 C355 503 410 493 445 465"
+        fill="none" stroke="url(#goldStroke)" stroke-width="9" stroke-linecap="round" opacity="0.9"/>
 
   <path d="M300 130 C325 160 338 182 338 200 C338 221 321 238 300 238 C279 238 262 221 262 200 C262 182 275 160 300 130 Z"
         fill="url(#dropGloss)"/>
 
   <g stroke="url(#goldStroke)" stroke-width="6" stroke-linecap="round" fill="none">
-    <path d="M390 255 L405 175 L420 255"/>
-    <line x1="396" y1="225" x2="414" y2="225"/>
-    <line x1="365" y1="190" x2="430" y2="195" stroke-width="8"/>
-    <path d="M430 195 q12 -4 14 8"/>
+    <path d="M350 258 L382 205 L414 258"/>
+    <line x1="335" y1="195" x2="428" y2="212" stroke-width="7"/>
+    <path d="M428 212 q13 -2 15 11"/>
   </g>
-  <circle cx="365" cy="190" r="9" fill="url(#goldText)"/>
-  <rect x="380" y="253" width="50" height="8" rx="3" fill="url(#goldText)"/>
+  <circle cx="382" cy="207" r="6" fill="url(#goldText)"/>
+  <circle cx="335" cy="195" r="9" fill="url(#goldText)"/>
+  <rect x="340" y="256" width="84" height="8" rx="3" fill="url(#goldText)"/>
 
   <text x="300" y="415" text-anchor="middle" direction="rtl"
         style="font-family:'Amiri','Noto Naskh Arabic',serif; font-weight:700; font-size:130px;"
