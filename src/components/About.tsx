@@ -1,18 +1,60 @@
 import { CheckCircle, Factory, Building2, Fuel } from 'lucide-react';
+import { useLanguage } from '@/lib/language';
+
+const audienceIcons = [Factory, Building2, Fuel];
+
+const content = {
+  en: {
+    badge: 'About Shemal Petroleum',
+    headingPart1: 'Your trusted',
+    headingHighlight: 'energy partner',
+    paragraph:
+      "Shemal Petroleum structures reliable supply chains: sourcing, storage, transport and delivery of petroleum products. Our goal is to make every operation clear, secure and compliant with industry requirements.",
+    features: [
+      'Secure and transparent contracts',
+      'Responsiveness on physical and forward markets',
+      'HSE and international standards compliance',
+      'End-to-end traceability, from origin to delivery',
+    ],
+    audiences: [
+      { title: 'Companies & refineries', desc: 'Crude and refined product supply' },
+      { title: 'Distributors & traders', desc: 'Regular volumes, spot and term contracts' },
+      { title: 'Stations & industrials', desc: 'Reliable delivery, stock management' },
+    ],
+    stats: [
+      { value: '15+', label: "Years of expertise" },
+      { value: '20+', label: 'Countries served' },
+      { value: '24/7', label: 'Operational support' },
+    ],
+  },
+  ar: {
+    badge: 'عن شمال للنفط',
+    headingPart1: 'شريككم',
+    headingHighlight: 'الموثوق في الطاقة',
+    paragraph:
+      'تبني شركة شمال للنفط سلاسل توريد موثوقة: التوريد والتخزين والنقل وتسليم المنتجات النفطية. هدفنا أن تكون كل عملية واضحة وآمنة ومتوافقة مع متطلبات القطاع.',
+    features: [
+      'عقود آمنة وشفافة',
+      'استجابة سريعة في الأسواق الفورية والآجلة',
+      'الالتزام بمعايير الصحة والسلامة والبيئة والمعايير الدولية',
+      'تتبع كامل من المصدر حتى التسليم',
+    ],
+    audiences: [
+      { title: 'الشركات والمصافي', desc: 'توريد النفط الخام والمنتجات المكررة' },
+      { title: 'الموزعون والتجار', desc: 'أحجام منتظمة، عقود فورية وآجلة' },
+      { title: 'المحطات والصناعيون', desc: 'تسليم موثوق وإدارة المخزون' },
+    ],
+    stats: [
+      { value: '+15', label: 'سنة خبرة' },
+      { value: '+20', label: 'دولة نخدمها' },
+      { value: '24/7', label: 'دعم تشغيلي' },
+    ],
+  },
+};
 
 const About = () => {
-  const features = [
-    'Contrats sécurisés et transparents',
-    'Réactivité sur les marchés physiques et à terme',
-    'Conformité HSE et normes internationales',
-    'Traçabilité de bout en bout, de l\'origine à la livraison',
-  ];
-
-  const audiences = [
-    { icon: Factory, title: 'Compagnies & raffineries', desc: 'Approvisionnement en brut et produits raffinés' },
-    { icon: Building2, title: 'Distributeurs & négociants', desc: 'Volumes réguliers, contrats spot et terme' },
-    { icon: Fuel, title: 'Stations & industriels', desc: 'Livraison fiable, gestion des stocks' },
-  ];
+  const { lang } = useLanguage();
+  const c = content[lang];
 
   return (
     <section id="about" className="py-24 bg-muted/30 relative overflow-hidden">
@@ -31,21 +73,19 @@ const About = () => {
           {/* Left Content */}
           <div>
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-shemal-gold-dark text-sm font-semibold mb-4 animate-fade-up">
-              À propos de Shemal Petroleum
+              {c.badge}
             </span>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-fade-up animation-delay-100">
-              Votre partenaire énergétique <span className="text-gradient">de confiance</span>
+              {c.headingPart1} <span className="text-gradient">{c.headingHighlight}</span>
             </h2>
 
             <p className="text-lg text-muted-foreground mb-8 animate-fade-up animation-delay-200">
-              Shemal Petroleum structure des chaînes d'approvisionnement fiables : sourcing,
-              stockage, transport et livraison de produits pétroliers. Notre objectif est de
-              rendre chaque opération claire, sécurisée et conforme aux exigences du secteur.
+              {c.paragraph}
             </p>
 
             <div className="space-y-4 mb-8">
-              {features.map((feature, index) => (
+              {c.features.map((feature, index) => (
                 <div
                   key={feature}
                   className="flex items-center gap-3 animate-fade-up"
@@ -62,31 +102,30 @@ const About = () => {
 
           {/* Right Content - Audience Cards */}
           <div className="space-y-4">
-            {audiences.map((item, index) => (
-              <div
-                key={item.title}
-                className="glass-card-hover p-6 rounded-2xl animate-fade-up"
-                style={{ animationDelay: `${(index + 2) * 150}ms` }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-shemal-gold-dark">
-                    <item.icon className="w-6 h-6 text-shemal-navy" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-foreground mb-1">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.desc}</p>
+            {c.audiences.map((item, index) => {
+              const Icon = audienceIcons[index];
+              return (
+                <div
+                  key={item.title}
+                  className="glass-card-hover p-6 rounded-2xl animate-fade-up"
+                  style={{ animationDelay: `${(index + 2) * 150}ms` }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-shemal-gold-dark">
+                      <Icon className="w-6 h-6 text-shemal-navy" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-foreground mb-1">{item.title}</h3>
+                      <p className="text-muted-foreground">{item.desc}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mt-8 animate-fade-up animation-delay-600">
-              {[
-                { value: '15+', label: 'Années d\'expertise' },
-                { value: '20+', label: 'Pays desservis' },
-                { value: '24/7', label: 'Support opérationnel' },
-              ].map((stat) => (
+              {c.stats.map((stat) => (
                 <div key={stat.label} className="text-center p-4 rounded-xl bg-card border border-border/50">
                   <div className="text-2xl font-bold text-gradient">{stat.value}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>

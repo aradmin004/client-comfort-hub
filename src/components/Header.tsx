@@ -1,12 +1,46 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
 import icon from '@/assets/shemal-icon.svg';
+import { useLanguage } from '@/lib/language';
+
+const content = {
+  en: {
+    brand: 'SHEMAL',
+    brandSub: 'PETROLEUM',
+    nav: [
+      { href: '/', label: 'Home' },
+      { href: '/trading', label: 'Trading & Supply' },
+      { href: '/infrastructure', label: 'Infrastructure & Logistics' },
+      { href: '/hse', label: 'HSE & Compliance' },
+      { href: '/support', label: 'Client Support' },
+      { href: '/contact', label: 'Contact' },
+    ],
+    cta: 'Request an Offer',
+    switchLabel: 'العربية',
+  },
+  ar: {
+    brand: 'شمال',
+    brandSub: 'للنفط',
+    nav: [
+      { href: '/', label: 'الرئيسية' },
+      { href: '/trading', label: 'التوريد والتجارة' },
+      { href: '/infrastructure', label: 'البنية التحتية واللوجستيات' },
+      { href: '/hse', label: 'الصحة والسلامة والبيئة' },
+      { href: '/support', label: 'دعم العملاء' },
+      { href: '/contact', label: 'اتصل بنا' },
+    ],
+    cta: 'اطلب عرض سعر',
+    switchLabel: 'English',
+  },
+};
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { lang, toggleLang } = useLanguage();
+  const c = content[lang];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,15 +49,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navLinks = [
-    { href: '/', label: 'Accueil' },
-    { href: '/trading', label: 'Trading & Négoce' },
-    { href: '/infrastructure', label: 'Infrastructures & Logistique' },
-    { href: '/hse', label: 'HSE & Conformité' },
-    { href: '/support', label: 'Support Client' },
-    { href: '/contact', label: 'Contact' },
-  ];
 
   const isActive = (href: string) => {
     if (href === '/') return location.pathname === '/';
@@ -52,21 +77,21 @@ const Header = () => {
                   isScrolled ? 'text-foreground' : 'text-white'
                 }`}
               >
-                SHEMAL
+                {c.brand}
               </span>
               <span
                 className={`text-[10px] font-semibold tracking-[0.3em] transition-colors ${
                   isScrolled ? 'text-muted-foreground' : 'text-white/70'
                 }`}
               >
-                PETROLEUM
+                {c.brandSub}
               </span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
+            {c.nav.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -83,23 +108,46 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA + Language */}
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={toggleLang}
+              className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                isScrolled
+                  ? 'text-foreground/70 hover:text-foreground hover:bg-muted'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
+              }`}
+              aria-label="Switch language"
+            >
+              <Languages className="w-4 h-4" />
+              {c.switchLabel}
+            </button>
             <Link to="/contact" className="btn-primary text-sm">
-              Demander une offre
+              {c.cta}
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2.5 rounded-xl transition-colors ${
-              isScrolled ? 'text-foreground bg-muted/50 hover:bg-muted' : 'text-white bg-white/10 hover:bg-white/20'
-            }`}
-            aria-label="Ouvrir le menu"
-          >
-            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={toggleLang}
+              className={`p-2.5 rounded-xl transition-colors ${
+                isScrolled ? 'text-foreground bg-muted/50 hover:bg-muted' : 'text-white bg-white/10 hover:bg-white/20'
+              }`}
+              aria-label="Switch language"
+            >
+              <Languages size={20} />
+            </button>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2.5 rounded-xl transition-colors ${
+                isScrolled ? 'text-foreground bg-muted/50 hover:bg-muted' : 'text-white bg-white/10 hover:bg-white/20'
+              }`}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -107,7 +155,7 @@ const Header = () => {
           isMobileMenuOpen ? 'max-h-96 pb-6' : 'max-h-0'
         }`}>
           <nav className={`flex flex-col gap-1 pt-4 border-t ${isScrolled ? 'border-border/50' : 'border-white/10'}`}>
-            {navLinks.map((link) => (
+            {c.nav.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -128,7 +176,7 @@ const Header = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="btn-primary text-center mt-3"
             >
-              Demander une offre
+              {c.cta}
             </Link>
           </nav>
         </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, LucideIcon } from 'lucide-react';
+import { ChevronRight, ChevronLeft, LucideIcon } from 'lucide-react';
+import { useLanguage } from '@/lib/language';
 
 interface PageHeaderProps {
   title: string;
@@ -9,6 +10,10 @@ interface PageHeaderProps {
 }
 
 const PageHeader = ({ title, subtitle, icon: Icon, breadcrumb }: PageHeaderProps) => {
+  const { lang, dir } = useLanguage();
+  const home = lang === 'ar' ? 'الرئيسية' : 'Home';
+  const Chevron = dir === 'rtl' ? ChevronLeft : ChevronRight;
+
   return (
     <section className="relative pt-32 pb-20 bg-hero-gradient overflow-hidden">
       {/* Background Effects */}
@@ -27,8 +32,8 @@ const PageHeader = ({ title, subtitle, icon: Icon, breadcrumb }: PageHeaderProps
       <div className="section-container relative z-10">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-white/60 mb-6 animate-fade-up">
-          <Link to="/" className="hover:text-white transition-colors">Accueil</Link>
-          <ChevronRight className="w-4 h-4" />
+          <Link to="/" className="hover:text-white transition-colors">{home}</Link>
+          <Chevron className="w-4 h-4" />
           <span className="text-white">{breadcrumb || title}</span>
         </nav>
 

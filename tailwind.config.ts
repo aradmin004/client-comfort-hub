@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Playfair Display', 'serif'],
+        arabic: ['Cairo', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
