@@ -19,12 +19,10 @@ const Contact = () => {
 
   const services = [
     { value: '', label: 'Sélectionner…' },
-    { value: 'infra', label: 'Infrastructure & Réseau' },
-    { value: 'sec', label: 'Sécurité informatique' },
-    { value: 'cloud', label: 'Cloud & Hybride (M365 / Azure)' },
-    { value: 'support', label: 'Support / Dépannage' },
-    { value: 'formation', label: 'Formation' },
-    { value: 'consult', label: 'Consultance / Cadrage projet' },
+    { value: 'trading', label: 'Trading & Négoce' },
+    { value: 'infra', label: 'Infrastructures & Logistique' },
+    { value: 'hse', label: 'HSE & Conformité' },
+    { value: 'support', label: 'Support Client' },
     { value: 'autre', label: 'Autre' },
   ];
 
@@ -81,9 +79,9 @@ const Contact = () => {
     <div className="min-h-screen">
       <Header />
       <main>
-        <PageHeader 
-          title="Contact & Devis"
-          subtitle="Décrivez votre besoin, je reviens vers vous rapidement."
+        <PageHeader
+          title="Contact & Offre"
+          subtitle="Décrivez votre besoin, notre équipe revient vers vous rapidement."
           icon={Mail}
           breadcrumb="Contact"
         />
@@ -93,7 +91,7 @@ const Contact = () => {
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Form */}
               <div className="feature-card p-8">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Demander un devis</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">Demander une offre</h2>
 
                 {isSubmitted ? (
                   <div className="text-center py-12">
@@ -171,7 +169,7 @@ const Contact = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-muted-foreground mb-1.5">
-                        Service
+                        Activité concernée
                       </label>
                       <select
                         name="service"
@@ -215,8 +213,8 @@ const Contact = () => {
                           </>
                         )}
                       </button>
-                      <a 
-                        href="mailto:info@arotech.be"
+                      <a
+                        href="mailto:contact@shemalpetroleum.com"
                         className="btn-secondary justify-center"
                       >
                         Ou envoyer un email
@@ -224,7 +222,7 @@ const Contact = () => {
                     </div>
 
                     <p className="text-xs text-muted-foreground">
-                      En envoyant ce formulaire, vous acceptez d'être recontacté par Arotech.
+                      En envoyant ce formulaire, vous acceptez d'être recontacté par Shemal Petroleum.
                     </p>
                   </form>
                 )}
@@ -241,11 +239,11 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                      <a 
-                        href="mailto:info@arotech.be" 
+                      <a
+                        href="mailto:contact@shemalpetroleum.com"
                         className="text-primary hover:underline"
                       >
-                        info@arotech.be
+                        contact@shemalpetroleum.com
                       </a>
                     </div>
                   </div>
@@ -257,7 +255,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Zone</h3>
                       <p className="text-muted-foreground">
-                        Belgique (Wallonie) – intervention sur demande
+                        Moyen-Orient & Afrique du Nord – opérations internationales
                       </p>
                     </div>
                   </div>
@@ -276,11 +274,11 @@ const Contact = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Link to="/consultance" className="btn-secondary">
-                    Consultance
+                  <Link to="/trading" className="btn-secondary">
+                    Trading & Négoce
                   </Link>
-                  <Link to="/securite" className="btn-secondary">
-                    Sécurité
+                  <Link to="/hse" className="btn-secondary">
+                    HSE & Conformité
                   </Link>
                 </div>
               </div>

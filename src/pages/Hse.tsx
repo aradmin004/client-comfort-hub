@@ -3,81 +3,80 @@ import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ContactCTA from '@/components/ContactCTA';
 import { Link } from 'react-router-dom';
-import { 
-  Shield, 
-  Search, 
-  Lock, 
-  Key, 
-  Database, 
-  Users,
+import {
+  ShieldCheck,
+  Search,
+  Leaf,
+  HardHat,
   FileCheck,
+  AlertTriangle,
   Award,
   ArrowRight,
-  Building2,
-  Heart
+  Factory,
+  Users
 } from 'lucide-react';
 
-const Security = () => {
+const Hse = () => {
   const pillars = [
-    { title: 'Protéger', desc: 'Réduire les risques (accès, réseau, postes, données).' },
-    { title: 'Vérifier', desc: 'Contrôler la sécurité et corriger ce qui est faible.' },
-    { title: 'Stratégie', desc: 'Prioriser, planifier et améliorer en continu.' },
+    { title: 'Protéger', desc: 'Réduire les risques pour les personnes, les sites et l\'environnement.' },
+    { title: 'Prévenir', desc: 'Identifier les dangers avant qu\'ils ne deviennent des incidents.' },
+    { title: 'Améliorer', desc: 'Suivre, corriger et progresser en continu.' },
   ];
 
   const audiences = [
-    { icon: Building2, title: 'PME & indépendants', desc: 'Sécuriser l\'essentiel sans complexité inutile.' },
-    { icon: Users, title: 'Particuliers', desc: 'Protection de base (WiFi, PC, sauvegardes, mots de passe).' },
-    { icon: Heart, title: 'Médical / Hôpital', desc: 'Approche structurée, segmentation et bonnes pratiques.' },
+    { icon: Factory, title: 'Compagnies pétrolières', desc: 'Conformité réglementaire, gestion des risques.' },
+    { icon: Users, title: 'Sites industriels', desc: 'Procédures adaptées, formation des équipes.' },
+    { icon: HardHat, title: 'Équipes terrain', desc: 'Sécurité au quotidien, équipements adaptés.' },
   ];
 
   const services = [
     {
       icon: Search,
-      title: 'Vérification de sécurité',
-      description: "État des lieux : configuration, accès, risques, points faibles. Résultat : liste claire d'actions à faire."
+      title: 'Audit HSE',
+      description: "État des lieux sécurité et environnement, identification des points faibles, plan d'action prioritaire."
     },
     {
-      icon: Shield,
-      title: 'Protection réseau (Firewall / VPN)',
-      description: "Règles simples et efficaces, accès VPN sécurisé, segmentation pour limiter l'impact d'un incident."
+      icon: ShieldCheck,
+      title: 'Sécurité des installations',
+      description: "Procédures opérationnelles, équipements de protection, prévention des incidents industriels."
     },
     {
-      icon: Key,
-      title: 'Accès & mots de passe',
-      description: "Bonnes pratiques, MFA, gestion des comptes et des droits (qui accède à quoi)."
+      icon: Leaf,
+      title: 'Gestion environnementale',
+      description: "Prévention des pollutions, traitement des rejets, conformité aux réglementations locales et internationales."
     },
     {
-      icon: Database,
-      title: 'Sauvegardes & continuité',
-      description: "Stratégie de sauvegarde, tests de restauration, continuité minimale en cas de problème."
-    },
-    {
-      icon: Users,
-      title: 'Sensibilisation (simple)',
-      description: "Conseils concrets : phishing, mots de passe, comportements à éviter. Rapide et utile."
+      icon: HardHat,
+      title: 'Formation & sensibilisation',
+      description: "Procédures de sécurité, gestes d'urgence, culture HSE diffusée à toutes les équipes."
     },
     {
       icon: FileCheck,
-      title: "Plan d'actions",
-      description: "Priorités P1/P2/P3, planning réaliste et amélioration continue."
+      title: 'Certifications & conformité',
+      description: "Accompagnement vers les référentiels ISO 14001, ISO 45001 et réglementations sectorielles."
+    },
+    {
+      icon: AlertTriangle,
+      title: 'Gestion des incidents',
+      description: "Plans d'urgence, retour d'expérience et amélioration continue après chaque événement."
     }
   ];
 
   const compliance = [
-    { title: 'NIS2 (Europe)', desc: 'Renforcer la sécurité, gérer les risques, améliorer la résilience et la réponse aux incidents.' },
-    { title: 'ISO/IEC 27001', desc: 'Méthode de management de la sécurité (politiques, mesures, suivi, amélioration).' },
-    { title: 'Certification', desc: 'Certifié ISO 27001 : je peux traduire les exigences en actions concrètes sur le terrain.' },
+    { title: 'ISO 14001', desc: 'Système de management environnemental : maîtrise des impacts et amélioration continue.' },
+    { title: 'ISO 45001', desc: 'Santé et sécurité au travail : prévention des accidents et des maladies professionnelles.' },
+    { title: 'Réglementations locales', desc: 'Nous traduisons les exigences légales et sectorielles en actions concrètes sur le terrain.' },
   ];
 
   return (
     <div className="min-h-screen">
       <Header />
       <main>
-        <PageHeader 
-          title="Sécurité informatique"
-          subtitle="Protéger vos systèmes, vérifier votre niveau de sécurité et mettre en place une stratégie simple et efficace."
-          icon={Shield}
-          breadcrumb="Sécurité"
+        <PageHeader
+          title="HSE & Conformité"
+          subtitle="Protéger les personnes, les installations et l'environnement à chaque étape de nos opérations."
+          icon={ShieldCheck}
+          breadcrumb="HSE & Conformité"
         />
 
         {/* Objectif + Pour qui */}
@@ -86,16 +85,17 @@ const Security = () => {
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Objectif */}
               <div className="feature-card p-8">
-                <h2 className="text-2xl font-bold text-foreground mb-4">Objectif</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-4">Notre objectif</h2>
                 <p className="text-muted-foreground mb-6">
-                  La sécurité ne doit pas être compliquée. Mon approche est de rendre votre 
-                  environnement plus sûr, étape par étape, sans bloquer votre travail.
+                  Dans le secteur pétrolier, la sécurité ne se négocie pas. Notre approche
+                  consiste à réduire les risques à chaque étape, sans jamais compromettre
+                  la continuité de vos opérations.
                 </p>
-                
+
                 <div className="space-y-3 mb-6">
                   {pillars.map((item) => (
                     <div key={item.title} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2" />
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 mt-2" />
                       <div>
                         <strong className="text-foreground">{item.title}</strong>
                         <p className="text-sm text-muted-foreground">{item.desc}</p>
@@ -106,11 +106,11 @@ const Security = () => {
 
                 <div className="flex flex-wrap gap-3">
                   <Link to="/contact" className="btn-primary">
-                    Demander un devis
+                    Demander un audit
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                   <Link to="/infrastructure" className="btn-secondary">
-                    Voir Infrastructure
+                    Voir Infrastructures & Logistique
                   </Link>
                 </div>
               </div>
@@ -144,13 +144,13 @@ const Security = () => {
                 Prestations
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-                Ce que je peux mettre en place
+                Ce que nous mettons en place
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => (
-                <div 
+                <div
                   key={service.title}
                   className="feature-card animate-fade-up"
                   style={{ animationDelay: `${index * 100}ms` }}
@@ -176,11 +176,11 @@ const Security = () => {
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-foreground mb-2">
-                    Conformité et bonnes pratiques (NIS2 / ISO 27001)
+                    Conformité et bonnes pratiques
                   </h2>
                   <p className="text-muted-foreground">
-                    Pour les organisations qui doivent aller plus loin, je propose une approche structurée 
-                    inspirée des bonnes pratiques internationales.
+                    Pour les organisations qui doivent aller plus loin, nous proposons une
+                    approche structurée inspirée des référentiels internationaux du secteur.
                   </p>
                 </div>
               </div>
@@ -196,7 +196,7 @@ const Security = () => {
 
               <div className="flex flex-wrap gap-3">
                 <Link to="/contact" className="btn-primary">
-                  Mettre en place une stratégie
+                  Mettre en place une stratégie HSE
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -211,4 +211,4 @@ const Security = () => {
   );
 };
 
-export default Security;
+export default Hse;

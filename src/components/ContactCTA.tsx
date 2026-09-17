@@ -8,11 +8,11 @@ interface ContactCTAProps {
   secondaryAction?: string;
 }
 
-const ContactCTA = ({ 
-  title = "Prêt à démarrer votre projet ?",
-  subtitle = "Décrivez votre besoin, je reviens vers vous rapidement avec une proposition claire.",
-  primaryAction = "Demander un devis",
-  secondaryAction = "Voir les services"
+const ContactCTA = ({
+  title = "Prêt à sécuriser votre approvisionnement ?",
+  subtitle = "Décrivez votre besoin, notre équipe revient vers vous rapidement avec une offre claire.",
+  primaryAction = "Demander une offre",
+  secondaryAction = "Voir nos activités"
 }: ContactCTAProps) => {
   return (
     <section className="py-20 relative overflow-hidden">
@@ -40,8 +40,8 @@ const ContactCTA = ({
                 {primaryAction}
                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link 
-                to="/consultance" 
+              <Link
+                to="/trading"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 {secondaryAction}
@@ -49,9 +49,9 @@ const ContactCTA = ({
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10 text-white/60">
-              <a href="mailto:info@arotech.be" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="mailto:contact@shemalpetroleum.com" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Mail className="w-4 h-4" />
-                info@arotech.be
+                contact@shemalpetroleum.com
               </a>
             </div>
           </div>

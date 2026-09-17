@@ -1,57 +1,57 @@
 import { Link } from 'react-router-dom';
-import { 
-  Network, 
-  Shield, 
-  Cloud, 
-  Headphones, 
-  GraduationCap, 
-  FileSearch,
+import {
+  Fuel,
+  Warehouse,
+  ShieldCheck,
+  Truck,
+  Headphones,
+  TrendingUp,
   ArrowRight
 } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      icon: FileSearch,
-      title: 'Consultance',
-      description: 'Cadrage de projet, architecture, accompagnement et conseil stratégique.',
-      link: '/consultance',
-      color: 'from-violet-500 to-purple-600'
+      icon: Fuel,
+      title: 'Trading & Négoce',
+      description: 'Brut et produits raffinés, contrats spot et à terme, sourcing international.',
+      link: '/trading',
+      color: 'from-amber-400 to-yellow-600'
     },
     {
-      icon: Network,
-      title: 'Infrastructure',
-      description: 'Réseau, WiFi, VLAN, switching et optimisation de vos systèmes.',
+      icon: Warehouse,
+      title: 'Infrastructures & Stockage',
+      description: 'Terminaux, capacités de stockage et gestion des stocks en temps réel.',
       link: '/infrastructure',
-      color: 'from-blue-500 to-cyan-600'
+      color: 'from-sky-600 to-blue-700'
     },
     {
-      icon: Shield,
-      title: 'Sécurité',
-      description: 'Firewall, VPN, audit, conformité NIS2/ISO 27001.',
-      link: '/securite',
+      icon: ShieldCheck,
+      title: 'HSE & Conformité',
+      description: 'Sécurité, environnement, normes internationales et certifications.',
+      link: '/hse',
       color: 'from-emerald-500 to-teal-600'
     },
     {
-      icon: Cloud,
-      title: 'Cloud & Hybride',
-      description: 'Microsoft 365, Azure, migration et infrastructure cloud.',
+      icon: Truck,
+      title: 'Logistique & Transport',
+      description: 'Transport maritime, pipeline et flotte routière, du terminal au client.',
       link: '/infrastructure',
-      color: 'from-sky-500 to-blue-600'
+      color: 'from-cyan-500 to-sky-600'
     },
     {
       icon: Headphones,
-      title: 'Support',
-      description: 'Assistance, dépannage, maintenance préventive et interventions.',
+      title: 'Support Client',
+      description: 'Suivi des livraisons, assistance dédiée et gestion des réclamations.',
       link: '/support',
       color: 'from-orange-500 to-red-500'
     },
     {
-      icon: GraduationCap,
-      title: 'Formation',
-      description: 'Sensibilisation sécurité, bonnes pratiques, accompagnement équipes.',
+      icon: TrendingUp,
+      title: 'Conseil & Développement',
+      description: 'Structuration de contrats, stratégie d\'approvisionnement, accompagnement.',
       link: '/contact',
-      color: 'from-pink-500 to-rose-600'
+      color: 'from-violet-500 to-purple-600'
     },
   ];
 
@@ -63,14 +63,15 @@ const Services = () => {
 
       <div className="section-container relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4 animate-fade-up">
-            Nos Services
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-shemal-gold-dark text-sm font-semibold mb-4 animate-fade-up">
+            Nos Activités
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-fade-up animation-delay-100">
-            Des solutions <span className="text-gradient">complètes</span> pour votre IT
+            Une chaîne <span className="text-gradient">complète</span> de services pétroliers
           </h2>
           <p className="text-lg text-muted-foreground animate-fade-up animation-delay-200">
-            De la consultation à l'implémentation, je vous accompagne à chaque étape de vos projets informatiques.
+            Du sourcing à la livraison finale, nous accompagnons chaque étape de votre
+            chaîne d'approvisionnement énergétique.
           </p>
         </div>
 
@@ -85,16 +86,16 @@ const Services = () => {
               <div className={`service-icon bg-gradient-to-br ${service.color}`}>
                 <service.icon className="w-7 h-7 text-white" />
               </div>
-              
+
               <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              
+
               <p className="text-muted-foreground mb-4">
                 {service.description}
               </p>
-              
-              <span className="inline-flex items-center text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+
+              <span className="inline-flex items-center text-sm font-semibold text-shemal-gold-dark opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                 En savoir plus
                 <ArrowRight className="ml-1 w-4 h-4" />
               </span>

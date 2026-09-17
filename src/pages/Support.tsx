@@ -3,10 +3,10 @@ import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
 import ContactCTA from '@/components/ContactCTA';
 import { Link } from 'react-router-dom';
-import { 
-  Headphones, 
-  MonitorSmartphone, 
-  Wrench, 
+import {
+  Headphones,
+  MonitorSmartphone,
+  Wrench,
   UserCheck,
   ArrowRight
 } from 'lucide-react';
@@ -15,18 +15,18 @@ const Support = () => {
   const services = [
     {
       icon: MonitorSmartphone,
-      title: 'Assistance à distance',
-      description: "Support rapide pour résoudre vos problèmes sans déplacement. Prise en main à distance sécurisée."
+      title: 'Suivi des commandes',
+      description: "Suivi en temps réel de vos livraisons, cargaisons et documents associés."
     },
     {
       icon: Wrench,
       title: 'Maintenance préventive',
-      description: "Vérifications régulières, mises à jour, optimisation pour éviter les pannes."
+      description: "Vérifications régulières des installations pour éviter les interruptions de service."
     },
     {
       icon: UserCheck,
       title: 'Interventions sur site',
-      description: "Déplacements en Wallonie pour les problèmes nécessitant une présence physique."
+      description: "Équipes mobilisables rapidement en cas d'urgence opérationnelle."
     }
   ];
 
@@ -34,11 +34,11 @@ const Support = () => {
     <div className="min-h-screen">
       <Header />
       <main>
-        <PageHeader 
-          title="Support & Maintenance"
-          subtitle="Assistance, dépannage et maintenance pour garder vos systèmes opérationnels."
+        <PageHeader
+          title="Support Client"
+          subtitle="Assistance, suivi des livraisons et intervention rapide pour garantir la continuité de votre approvisionnement."
           icon={Headphones}
-          breadcrumb="Support"
+          breadcrumb="Support Client"
         />
 
         {/* Services */}
@@ -67,20 +67,20 @@ const Support = () => {
               <div className="feature-card p-8">
                 <h2 className="text-2xl font-bold text-foreground mb-4">Parlons de votre besoin</h2>
                 <p className="text-muted-foreground mb-6">
-                  Décrivez votre contexte, je propose une solution claire + un devis. 
-                  Intervention rapide et tarifs transparents.
+                  Décrivez votre contexte, nous proposons une solution claire et une offre
+                  adaptée. Réactivité et transparence à chaque échange.
                 </p>
-                
+
                 <div className="p-4 rounded-xl bg-orange-500/5 border border-orange-500/10 mb-6">
                   <h3 className="font-semibold text-foreground mb-2">Réactivité garantie</h3>
                   <p className="text-sm text-muted-foreground">
-                    Réponse rapide à vos demandes. En cas d'urgence, intervention prioritaire 
+                    Réponse rapide à vos demandes. En cas d'urgence, intervention prioritaire
                     pour minimiser l'impact sur votre activité.
                   </p>
                 </div>
 
                 <Link to="/contact" className="btn-primary w-full justify-center">
-                  Demander un devis
+                  Demander une offre
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -88,9 +88,9 @@ const Support = () => {
           </div>
         </section>
 
-        <ContactCTA 
-          title="Besoin d'aide rapidement ?"
-          subtitle="Contactez-moi pour une assistance ou un devis personnalisé."
+        <ContactCTA
+          title="Besoin d'assistance rapidement ?"
+          subtitle="Contactez notre équipe pour un suivi de commande ou une intervention."
         />
       </main>
       <Footer />

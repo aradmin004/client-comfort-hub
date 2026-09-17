@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Open Sans', 'sans-serif'],
-        display: ['Raleway', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,13 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        arotech: {
-          blue: "hsl(var(--arotech-blue))",
-          "blue-light": "hsl(var(--arotech-blue-light))",
-          "blue-dark": "hsl(var(--arotech-blue-dark))",
-          gray: "hsl(var(--arotech-gray))",
-          "gray-light": "hsl(var(--arotech-gray-light))",
-          "gray-dark": "hsl(var(--arotech-gray-dark))",
+        shemal: {
+          navy: "hsl(var(--shemal-navy))",
+          "navy-light": "hsl(var(--shemal-navy-light))",
+          gold: "hsl(var(--shemal-gold))",
+          "gold-light": "hsl(var(--shemal-gold-light))",
+          "gold-dark": "hsl(var(--shemal-gold-dark))",
+          petrol: "hsl(var(--shemal-petrol))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -100,8 +100,8 @@ export default {
         "slide-in-left": "slide-in-left 0.5s ease-out",
       },
       boxShadow: {
-        'arotech': '0 8px 24px -8px hsl(200 70% 45% / 0.15)',
-        'arotech-lg': '0 16px 48px -12px hsl(200 70% 45% / 0.2)',
+        'shemal': '0 8px 24px -8px hsl(43 68% 40% / 0.2)',
+        'shemal-lg': '0 16px 48px -12px hsl(43 68% 40% / 0.25)',
       },
     },
   },

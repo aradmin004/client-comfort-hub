@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, ArrowUpRight } from 'lucide-react';
-import logo from '@/assets/arotech-logo.png';
+import icon from '@/assets/shemal-icon.svg';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    { label: 'Consultance', href: '/consultance' },
-    { label: 'Infrastructure', href: '/infrastructure' },
-    { label: 'Sécurité', href: '/securite' },
-    { label: 'Support', href: '/support' },
+    { label: 'Trading & Négoce', href: '/trading' },
+    { label: 'Infrastructures & Logistique', href: '/infrastructure' },
+    { label: 'HSE & Conformité', href: '/hse' },
+    { label: 'Support Client', href: '/support' },
   ];
 
   const links = [
@@ -18,7 +18,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
+    <footer className="bg-shemal-navy text-background relative overflow-hidden">
       {/* Background Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
 
@@ -27,36 +27,39 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Arotech" className="h-10 brightness-0 invert" />
-              <span className="font-bold text-xl">Arotech</span>
+              <img src={icon} alt="Shemal Petroleum" className="h-11 w-auto" />
+              <span className="flex flex-col leading-none">
+                <span className="font-display font-bold text-xl">SHEMAL</span>
+                <span className="text-[10px] font-semibold tracking-[0.3em] text-background/60">PETROLEUM</span>
+              </span>
             </Link>
             <p className="text-background/70 max-w-sm mb-6">
-              Expert IT en Belgique. Réseaux, sécurité, cloud et support 
-              pour PME, indépendants et secteur médical.
+              Négoce, stockage et distribution de produits pétroliers. Un partenaire fiable
+              pour sécuriser votre approvisionnement, de l'origine jusqu'au dernier kilomètre.
             </p>
             <div className="flex flex-col gap-3">
-              <a 
-                href="mailto:info@arotech.be" 
+              <a
+                href="mailto:contact@shemalpetroleum.com"
                 className="flex items-center gap-2 text-background/70 hover:text-background transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                info@arotech.be
+                contact@shemalpetroleum.com
               </a>
               <div className="flex items-center gap-2 text-background/70">
                 <MapPin className="w-4 h-4" />
-                Belgique (Wallonie)
+                Moyen-Orient & Afrique du Nord
               </div>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-bold mb-4">Services</h4>
+            <h4 className="font-bold mb-4">Activités</h4>
             <ul className="space-y-3">
               {services.map((item) => (
                 <li key={item.href}>
-                  <Link 
-                    to={item.href} 
+                  <Link
+                    to={item.href}
                     className="text-background/70 hover:text-background transition-colors inline-flex items-center gap-1 group"
                   >
                     {item.label}
@@ -73,8 +76,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {links.map((item) => (
                 <li key={item.href}>
-                  <Link 
-                    to={item.href} 
+                  <Link
+                    to={item.href}
                     className="text-background/70 hover:text-background transition-colors inline-flex items-center gap-1 group"
                   >
                     {item.label}
@@ -89,11 +92,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-background/50">
-            © {currentYear} Arotech. Tous droits réservés.
+            © {currentYear} Shemal Petroleum. Tous droits réservés.
           </p>
-          <div className="flex items-center gap-6 text-sm text-background/50">
-            <span>TVA: BE XXX.XXX.XXX</span>
-          </div>
         </div>
       </div>
     </footer>
